@@ -1,2 +1,30 @@
 <app-header></app-header>
-<p>bookdetails works!</p>
+<ng-container *ngIf="book === undefined">
+    <div class="alert alert-danger text-center" role="alert">
+        NO BOOKS FOUND
+    </div>
+</ng-container>
+<div class="container" *ngIf="book">
+    <div class="row">
+        <div class="book-image">
+            <img [src]="book.image" alt="{{ book.title }}" class="img-fluid">
+        </div>
+        <div class="book-details">
+            <div class="Title">{{ book.title }}</div>
+            <p><strong>Authors:</strong> {{ book.authors.join(', ') }}</p>
+            <ng-container *ngFor="let cat of book.categories" >
+                <span class="badge bg-secondary">{{cat}}</span>
+            </ng-container>
+            <p><strong>Description:</strong> {{ book.description }}</p>
+            <div class="stars">
+                <ng-container *ngIf="stars !== undefined">
+                    <ng-container
+                        *ngFor="let star of [1,2,3,4,5]; let i = index">
+                        <i class="bi bi-star{{ i < stars ? '-fill' : '' }}"></i>
+                    </ng-container>
+                </ng-container>
+            </div>
+            <p class="ISBN"><strong>ISBN:</strong> {{book.isbn}}</p>
+        </div>
+    </div>
+</div>

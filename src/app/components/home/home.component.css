@@ -1,0 +1,11 @@
+.alert.alert-danger.text-center{
+    font-size: 1.5em;
+    padding: 1em;
+    font-weight: bold;
+}
+img{
+    height: 285px;
+}
+i{
+    font-size: 2em;
+}

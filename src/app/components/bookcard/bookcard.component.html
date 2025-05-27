@@ -1,0 +1,18 @@
+
+<div class="card " style="width: 18rem;">
+    <img src="{{book.image}}" class="card-img-top" alt="{{book.title}}">
+    <div class="card-body">
+        <h5 class="card-title"
+            (click)="OpenBookDetails(book.id)">{{book.title}}</h5>
+        <h6>{{book.authors.join("-")}}</h6>
+        <ng-container *ngFor="let cat of book.categories">
+            <span class="badge bg-secondary">{{cat}}</span>
+        </ng-container>
+        <div *ngIf="book.stars !== undefined">
+            <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+                <i class="bi bi-star{{ i < book.stars ? '-fill' : '' }}"></i>
+            </ng-container>
+        </div>
+        <p class="text-danger">{{book.readingState}}</p>
+    </div>
+</div>

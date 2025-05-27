@@ -1,2 +1,35 @@
 <app-header></app-header>
-<p>home works!</p>
+
+<div class="container d-flex justify-content-end mt-3  ">
+  <i class="bi" [class.bi-table]="cardView"
+                [class.bi-list]="!cardView" 
+                (click)="setCardView(!cardView)"></i>
+</div>
+<div *ngIf="cardView" class="container d-flex justify-content-evenly mt-5 ">
+  <ng-container *ngIf="libreria.length > 0">
+    <ng-container *ngFor="let book of libreria">
+      <app-bookcard [book]="book"></app-bookcard>
+    </ng-container>
+  </ng-container>
+</div>
+<div *ngIf="!cardView" class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Titolo</th>
+        <th>Autori</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of libreria">
+        <td>{{ book.title }}</td>
+        <td>{{ book.authors.join(', ') }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-container *ngIf="libreria.length === 0">
+    <div class="alert alert-danger text-center" role="alert">
+      NO BOOKS FOUND
+    </div>
+  </ng-container>
