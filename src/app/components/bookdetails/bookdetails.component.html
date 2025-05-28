@@ -8,15 +8,6 @@
     <div class="row">
         <div class="book-image">
             <img [src]="book.image" alt="{{ book.title }}" class="img-fluid">
-        </div>
-        <div class="book-details">
-            <div class="Title">{{ book.title }}</div>
-            <p class="Author"><strong>Authors:</strong> {{
-                book.authors.join(', ') }}</p>
-            <ng-container *ngFor="let cat of book.categories">
-                <span class="badge bg-secondary">{{cat}}</span>
-            </ng-container>
-            <p><strong>Description:</strong> {{ book.description }}</p>
             <div class="stars">
                 <div *ngIf="book.stars !== undefined">
                     <ng-container
@@ -26,7 +17,26 @@
                     </ng-container>
                 </div>
             </div>
+        </div>
+        <div class="book-details">
+            <div class="Title">{{ book.title }}</div>
+            <p class="Author"><strong>Authors:</strong> {{
+                book.authors.join(', ') }}</p>
+            <ng-container *ngFor="let cat of book.categories">
+                <span class="badge bg-secondary">{{cat}}</span>
+            </ng-container>
+            <p><strong>Description:</strong> {{ book.description }}</p>
             <p class="ISBN"><strong>ISBN:</strong> {{book.isbn}}</p>
+            <!-- From Uiverse.io by cssbuttons-io -->
+
+            <button class="delete" (click)="deleteBook()"><span class="text">Delete</span><span
+                    class="icon"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 24 24"><path
+                            d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z">
+                        </path>
+                    </svg>
+                </span>
+            </button>
         </div>
     </div>
 </div>

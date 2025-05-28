@@ -31,10 +31,9 @@ export class BookService {
     return this.http.get<Book>(environment.apiUrl+"/libri/"+id);
   }
   delete(id: number) {
-    this.library = this.library.filter(book => book.id !== id);
+    return this.http.delete(environment.apiUrl+"/libri/"+id);
   }
   add(book: Book) {
-    this.library.push(book);
   }
   getAuthors(){
     return this.http.get<string[]>(environment.apiUrl+"/autori");

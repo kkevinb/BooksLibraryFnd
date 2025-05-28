@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HeaderComponent } from "../header/header.component";
 import { BookService } from "../../services/book.service"; 
 import { Book } from '../../Models/Book';
@@ -13,10 +13,17 @@ import { NgFor } from '@angular/common';
   styleUrl: './bookdetails.component.css'
 })
 export class BookdetailsComponent {
-  book: Book | undefined;
+  book!: Book;
 
-  constructor(private bookService: BookService,private route: ActivatedRoute) {
+  constructor(private bookService: BookService,private route: ActivatedRoute,private router:Router) {
     bookService.getOne(Number(route.snapshot.paramMap.get('id'))).subscribe(r => this.book = r);
+  }
+
+  deleteBook() {
+    this.bookService.delete(Number(this.book.id)).subscribe({
+      next: r=> this.router.navigate(['']),
+      error: e => alert("Errore nella cancellazione")
+    });
   }
 
 }

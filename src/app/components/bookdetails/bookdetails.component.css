@@ -10,6 +10,7 @@
 .book-image {
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -35,4 +36,65 @@
     /* put it on the right side */
     text-align: right;
     font-size: 0.8em;
+}
+/* From Uiverse.io by cssbuttons-io */ 
+button.delete {
+ width: 300px;
+ height: 50px;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ background: red;
+ border: none;
+ border-radius: 5px;
+ box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+ background: #e62222;
+}
+
+button.delete, button span {
+ transition: 200ms;
+}
+
+button.delete .text {
+ transform: translateX(35px);
+ color: white;
+ font-weight: bold;
+}
+
+button.delete .icon {
+ position: absolute;
+ border-left: 1px solid #c41b1b;
+ transform: translateX(200px);
+ height: 40px;
+ width: 40px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+button.delete svg {
+ width: 15px;
+ fill: #eee;
+}
+
+button.delete:hover {
+ background: #ff3636;
+}
+
+button.delete:hover .text {
+ color: transparent;
+}
+
+button.delete:hover .icon {
+ width: 300px;
+ border-left: none;
+ transform: translateX(0);
+}
+
+button.delete:focus {
+ outline: none;
+}
+
+button.delete:active .icon svg {
+ transform: scale(0.8);
 }
