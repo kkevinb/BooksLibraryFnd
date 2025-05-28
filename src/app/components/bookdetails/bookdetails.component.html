@@ -11,18 +11,20 @@
         </div>
         <div class="book-details">
             <div class="Title">{{ book.title }}</div>
-            <p class="Author"><strong>Authors:</strong> {{ book.authors.join(', ') }}</p>
-            <ng-container *ngFor="let cat of book.categories" >
+            <p class="Author"><strong>Authors:</strong> {{
+                book.authors.join(', ') }}</p>
+            <ng-container *ngFor="let cat of book.categories">
                 <span class="badge bg-secondary">{{cat}}</span>
             </ng-container>
             <p><strong>Description:</strong> {{ book.description }}</p>
             <div class="stars">
-                <ng-container *ngIf="stars !== undefined">
+                <div *ngIf="book.stars !== undefined">
                     <ng-container
                         *ngFor="let star of [1,2,3,4,5]; let i = index">
-                        <i class="bi bi-star{{ i < stars ? '-fill' : '' }}"></i>
+                        <i
+                            class="bi bi-star{{ i < book.stars ? '-fill' : '' }}"></i>
                     </ng-container>
-                </ng-container>
+                </div>
             </div>
             <p class="ISBN"><strong>ISBN:</strong> {{book.isbn}}</p>
         </div>

@@ -14,17 +14,9 @@ import { NgFor } from '@angular/common';
 })
 export class BookdetailsComponent {
   book: Book | undefined;
-  id: number | undefined = undefined;
-  stars:number | undefined = undefined;
 
   constructor(private bookService: BookService,private route: ActivatedRoute) {
-    this.route.params.subscribe(params => {
-      this.id = Number(params['id']); 
-    });
-    this.book = this.bookService.getOne(this.id);
-    if (this.book) {
-      this.stars = this.book.stars;
-    }
+    bookService.getOne(Number(route.snapshot.paramMap.get('id'))).subscribe(r => this.book = r);
   }
 
 }

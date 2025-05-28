@@ -1,9 +1,6 @@
 .card{
     border: 0.10em solid gray;
 } 
-.badge.bg-secondary:hover{
-    text-decoration: underline;
-}
 .card-title:hover {
     text-decoration: underline;
 }

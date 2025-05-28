@@ -23,25 +23,21 @@ export class HomeComponent {
   filtroCategoria: string = "-";
 
   constructor(private bookService: BookService) {
-    this.loadData();
-    this.authors = this.bookService.getAuthors();
-    this.categories = this.bookService.getCategories();
+    this.getAuthors();
+    this.getCategories();
+     this.loadData();
   }
   setCardView(status: boolean) {
     this.cardView = status;
   }
 
   loadData() {
-    if(this.filtroAutore !== "-"){
-      this.libreria = this.bookService.filterByAuthor(this.filtroAutore);
-      if(this.filtroCategoria !== "-"){
-        this.libreria = this.libreria.filter(book => book.categories.includes(this.filtroCategoria));
-      }
-    }else if(this.filtroCategoria !== "-"){
-      this.libreria = this.bookService.filterByCategory(this.filtroCategoria);
-    }
-    else{
-      this.libreria = this.bookService.getAll();
-    }
+    this.bookService.getAll(this.filtroAutore, this.filtroCategoria).subscribe(r => { this.libreria = r; }); 
+  }
+  getAuthors(){
+    this.bookService.getAuthors().subscribe(r => { this.authors = r; });
+  }
+  getCategories(){
+    this.bookService.getCategories().subscribe(r => { this.categories = r; });
   }
 }
