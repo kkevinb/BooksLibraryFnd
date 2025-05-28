@@ -1,9 +1,18 @@
 <app-header></app-header>
 
-<div class="container d-flex justify-content-end mt-3  ">
+<div class="container d-flex justify-content-end mt-3 gap-5  ">
+  <select [(ngModel)]="filtroCategoria" (change)="loadData()">
+    <option value="-">All</option>
+    <option *ngFor="let cat of categories" value="{{cat}}">{{cat}}</option>
+  </select>
+  <select [(ngModel)]="filtroAutore" (change)="loadData()">
+    <option value="-">All</option>
+    <option *ngFor="let author of authors"
+      value="{{author}}">{{author}}</option>
+  </select>
   <i class="bi" [class.bi-table]="cardView"
-                [class.bi-list]="!cardView" 
-                (click)="setCardView(!cardView)"></i>
+    [class.bi-list]="!cardView"
+    (click)="setCardView(!cardView)"></i>
 </div>
 <div *ngIf="cardView" class="container d-flex justify-content-evenly mt-5 ">
   <ng-container *ngIf="libreria.length > 0">
@@ -13,7 +22,7 @@
   </ng-container>
 </div>
 <div *ngIf="!cardView" class="container">
-  <table>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>Titolo</th>
@@ -29,7 +38,7 @@
   </table>
 </div>
 <ng-container *ngIf="libreria.length === 0">
-    <div class="alert alert-danger text-center" role="alert">
-      NO BOOKS FOUND
-    </div>
-  </ng-container>
+  <div class="alert alert-danger text-center" role="alert">
+    NO BOOKS FOUND
+  </div>
+</ng-container>

@@ -11,7 +11,7 @@
         </div>
         <div class="book-details">
             <div class="Title">{{ book.title }}</div>
-            <p><strong>Authors:</strong> {{ book.authors.join(', ') }}</p>
+            <p class="Author"><strong>Authors:</strong> {{ book.authors.join(', ') }}</p>
             <ng-container *ngFor="let cat of book.categories" >
                 <span class="badge bg-secondary">{{cat}}</span>
             </ng-container>

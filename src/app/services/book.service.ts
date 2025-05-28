@@ -34,5 +34,20 @@ Hawaii, 2025. Nove anni dopo, mentre il mondo si prepara ad affrontare sfide amb
   add(book: Book) {
     this.library.push(book);
   }
-
+  getAuthors(): string[]{
+    let authors: string[] = [];
+    this.library.forEach(book => authors = authors.concat(book.authors));
+    return authors;
+  }
+  filterByAuthor(author: string): Book[]{
+    return this.library.filter(book => book.authors.includes(author));
+  }
+  getCategories(): string[]{
+    let categories: string[] = [];
+    this.library.forEach(book => categories = categories.concat(book.categories));
+    return categories;
+  }
+  filterByCategory(category: string): Book[]{
+    return this.library.filter(book => book.categories.includes(category));
+  }
 }

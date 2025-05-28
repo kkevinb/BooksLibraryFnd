@@ -12,10 +12,10 @@ import { NgFor } from '@angular/common';
   styleUrl: './bookcard.component.css'
 })
 export class BookcardComponent {
-  @Input() book!:Book;
-  constructor(private router: Router) {}
+  @Input() book!: Book;
+  constructor(private router: Router) { }
 
-OpenBookDetails(id: number) {
-  this.router.navigate(['/libri', id]);
-}
+  OpenBookDetails(id: number) {
+    this.router.navigate(['/libri', id]);
+  }
 }
