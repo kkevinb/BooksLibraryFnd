@@ -33,6 +33,9 @@ export class BookService {
   delete(id: number) {
     return this.http.delete(environment.apiUrl+"/libri/"+id);
   }
+  update(book: Book) {
+    return this.http.put(environment.apiUrl+"/libri/"+book.id, book);
+  }
   add(book: Book) {
   }
   getAuthors(){
@@ -40,5 +43,8 @@ export class BookService {
   }
   getCategories(){
     return this.http.get<string[]>(environment.apiUrl+"/generi");
+  }
+  getReadingStates(){
+    return this.http.get<string[]>(environment.apiUrl+"/statilettura");
   }
 }

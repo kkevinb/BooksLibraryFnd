@@ -37,7 +37,13 @@
     text-align: right;
     font-size: 0.8em;
 }
-/* From Uiverse.io by cssbuttons-io */ 
+.readingState{
+    width: 80%;
+    height: 2em;
+    border-radius: 0.5em;
+    border: 0.2em solid gray;
+}
+
 button.delete {
  width: 300px;
  height: 50px;
@@ -65,15 +71,15 @@ button.delete .icon {
  position: absolute;
  border-left: 1px solid #c41b1b;
  transform: translateX(200px);
- height: 40px;
- width: 40px;
+ height: 50px;
+ width: 50px;
  display: flex;
  align-items: center;
  justify-content: center;
 }
 
 button.delete svg {
- width: 15px;
+ width: 1.2em;
  fill: #eee;
 }
 
