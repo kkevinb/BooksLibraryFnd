@@ -6,6 +6,8 @@ import { NgFor } from '@angular/common';
 import { NgIf } from '@angular/common';
 import { BookcardComponent } from "../bookcard/bookcard.component";
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -22,22 +24,26 @@ export class HomeComponent {
   filtroAutore: string = "-";
   filtroCategoria: string = "-";
 
-  constructor(private bookService: BookService) {
+  constructor(private bookService: BookService,private router: Router) {
     this.getAuthors();
     this.getCategories();
-     this.loadData();
+    this.loadData();
   }
   setCardView(status: boolean) {
     this.cardView = status;
   }
 
   loadData() {
-    this.bookService.getAll(this.filtroAutore, this.filtroCategoria).subscribe(r => { this.libreria = r; }); 
+    this.bookService.getAll(this.filtroAutore, this.filtroCategoria).subscribe(r => { this.libreria = r; });
+    this.bookService.getAll(this.filtroAutore, this.filtroCategoria).subscribe(r => { this.libreria = r; });
   }
   getAuthors(){
     this.bookService.getAuthors().subscribe(r => { this.authors = r; });
   }
   getCategories(){
     this.bookService.getCategories().subscribe(r => { this.categories = r; });
+  }
+  openBookDetails(id: number) {
+    this.router.navigate(['/libri', id]);
   }
 }

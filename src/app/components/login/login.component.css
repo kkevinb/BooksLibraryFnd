@@ -1,0 +1,24 @@
+.container{
+    margin: 3em;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+.input-style {
+  width: 40%;
+  padding: 0.8em;
+  border: 0.1em solid #ccc;
+  border-radius: 0.4em;
+  font-size: 1em;
+  color: #555;
+  outline: none;
+}
+
+.input-style:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}

@@ -26,7 +26,7 @@
             <p class="Author"><strong>Authors:</strong> {{
                 book.authors.join(', ') }}</p>
             <ng-container *ngFor="let cat of book.categories">
-                <span class="badge bg-secondary">{{cat}}</span>
+                <span class="badge bg-secondary m-1">{{cat}}</span>
             </ng-container>
             <p><strong>Description:</strong> {{ book.description }}</p>
             <p class="ISBN"><strong>ISBN:</strong> {{book.isbn}}</p>

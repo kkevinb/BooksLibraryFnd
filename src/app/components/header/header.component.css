@@ -1,6 +1,8 @@
-#btnAddposition{
+#btnPosition{
     display: flex;
     justify-content: flex-end;
+    flex-direction: row-reverse;
+    gap: 2em;
 }
 p{
     margin: 0.5em 0;
@@ -15,8 +17,7 @@ p{
 }
 
 
-/* From Uiverse.io by UtariD86 */ 
-button {
+button.addbook {
   width: 150px;
   height: 50px;
   cursor: pointer;
@@ -29,18 +30,18 @@ button {
   background: #00a600;
 }
 
-button,
-button span {
+button.addbook,
+button.addbook span {
   transition: 200ms;
 }
 
-button .text {
+button.addbook .text {
   transform: translateX(35px);
   color: white;
   font-weight: bold;
 }
 
-button .icon {
+button.addbook .icon {
   position: absolute;
   border-left: 1px solid #007300;
   transform: translateX(110px);
@@ -51,34 +52,34 @@ button .icon {
   justify-content: center;
 }
 
-button svg {
+button.addbook svg {
   width: 15px;
   fill: #eee;
 }
 
-button:hover {
+button.addbook:hover {
   background: #00a600;
 }
 
-button:active {
+button.addbook:active {
   background: #00cc00;
 }
 
-button:hover .text {
+button.addbook:hover .text {
   color: transparent;
 }
 
-button:hover .icon {
+button.addbook:hover .icon {
   width: 150px;
   border-left: none;
   transform: translateX(0);
 }
 
-button:focus {
+button.addbook:focus {
   outline: none;
 }
 
-button:active .icon svg {
+button.addbook:active .icon svg {
   transform: scale(0.8);
 }
 
@@ -86,4 +87,97 @@ button:active .icon svg {
   color: white;
   margin: 150px;
   font-size: 30px;
+}
+
+/* From Uiverse.io by vinodjangid07 */ 
+.Btn-login {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 3em;
+  height: 3em;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(163, 142, 255);
+}
+.Btn-logout {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 3em;
+  height: 3em;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: red;
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 1em;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* text */
+.text-login {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+.text-logout {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+/* hover effect on button width */
+.Btn-login:hover,.Btn-logout:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn-login:hover .sign, .Btn-logout:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+/* hover effect button's text */
+.Btn-login:hover .text-login,.Btn-logout:hover .text-logout {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn-login:active,.Btn-logout:active {
+  transform: translate(2px ,2px);
 }

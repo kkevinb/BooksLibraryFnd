@@ -1,0 +1,110 @@
+.container{
+    margin: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5em;
+}
+/* From Uiverse.io by JayRamoliya */ 
+.input-style {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #555;
+  outline: none;
+}
+
+.input-style:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+#btn_search{
+    border: 0.1em solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+.table.table-striped{
+    border: 0.1em solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+td,th{
+    border: 0.1em solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+
+/* From Uiverse.io by UtariD86 */ 
+button.addbook {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: #00a600;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  background: #00a600;
+}
+
+button.addbook,
+button.addbook span {
+  transition: 200ms;
+}
+
+button.addbook .text {
+  transform: translateX(35px);
+  color: white;
+  font-weight: bold;
+}
+
+button.addbook .icon {
+  position: absolute;
+  border-left: 1px solid #007300;
+  transform: translateX(110px);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.addbook svg {
+  width: 15px;
+  fill: #eee;
+}
+
+button.addbook:hover {
+  background: #00a600;
+}
+
+button.addbook:active {
+  background: #00cc00;
+}
+
+button.addbook:hover .text {
+  color: transparent;
+}
+
+button.addbook:hover .icon {
+  width: 150px;
+  border-left: none;
+  transform: translateX(0);
+}
+
+button.addbook:focus {
+  outline: none;
+}
+
+button.addbook:active .icon svg {
+  transform: scale(0.8);
+}
+
+.buttonSpan {
+  color: white;
+  margin: 150px;
+  font-size: 30px;
+}
+

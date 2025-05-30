@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<div class="container d-flex justify-content-end mt-3 gap-5  ">
+<div class="container d-flex justify-content-end mt-3 gap-5">
   <select [(ngModel)]="filtroCategoria" (change)="loadData()">
     <option value="-">All</option>
     <option *ngFor="let cat of categories" value="{{cat}}">{{cat}}</option>
@@ -14,7 +14,7 @@
     [class.bi-list]="!cardView"
     (click)="setCardView(!cardView)"></i>
 </div>
-<div *ngIf="cardView" class="container d-flex justify-content-evenly mt-5 ">
+<div *ngIf="cardView" class="container cards">
   <ng-container *ngIf="libreria.length > 0">
     <ng-container *ngFor="let book of libreria">
       <app-bookcard [book]="book"></app-bookcard>
@@ -22,17 +22,35 @@
   </ng-container>
 </div>
 <div *ngIf="!cardView" class="container">
-  <table class="table table-striped">
+  <table *ngIf="libreria.length > 0" class="table table-striped">
     <thead>
       <tr>
         <th>Titolo</th>
         <th>Autori</th>
+        <th>Generi</th>
+        <th>Valutazione</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let book of libreria">
-        <td>{{ book.title }}</td>
-        <td>{{ book.authors.join(', ') }}</td>
+        <td class="title" (click)="openBookDetails(book.id)">{{ book.title }}</td>
+        <td class="author">{{ book.authors.join(', ') }}</td>
+        <td>
+          <ng-container *ngFor="let cat of book.categories" >
+            <span class="badge bg-secondary m-1">{{cat}}</span>
+          </ng-container>
+        </td>
+        <td>
+          <div class="stars">
+                <div *ngIf="book.stars !== undefined">
+                    <ng-container
+                        *ngFor="let star of [1,2,3,4,5]; let i = index">
+                        <i
+                            class="bi bi-star{{ i < book.stars ? '-fill' : '' }}"></i>
+                    </ng-container>
+                </div>
+            </div>
+        </td>
       </tr>
     </tbody>
   </table>
