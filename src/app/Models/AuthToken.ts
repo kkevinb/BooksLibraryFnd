@@ -55,13 +55,13 @@ export class AuthService {
     return !this.jwtHelper.isTokenExpired(token);
   }
 
-  getFieldFromToken()
+  getNameFromToken()
   {
     var token = localStorage.getItem('token');
     if( !token || !this.isLogged() ) return 0;
 
     const decodedToken = this.jwtHelper.decodeToken(token);
-    if( decodedToken && decodedToken.field ) return decodedToken.field;
+    if( decodedToken && decodedToken.unique_name ) return decodedToken.unique_name;
     return 0;
   }
 }

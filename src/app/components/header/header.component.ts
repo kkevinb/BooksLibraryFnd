@@ -35,4 +35,7 @@ export class HeaderComponent{
       }
     });
    }
+   getName(){
+     return this.authService.getNameFromToken();
+   }
 }

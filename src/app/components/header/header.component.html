@@ -26,6 +26,7 @@
 
             <div class="text-logout">Logout</div>
         </button>
+        <div *ngIf="islogged" class="welcome">Welcome {{getName()}}</div>
         </div>
     </div>
 </nav>
